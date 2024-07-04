@@ -48,6 +48,12 @@ const Loader = styled.span`
     display:block;
 `;
 
+const Img = styled.img`
+    width:35px;
+    height:35px;
+    margin-right:10px;
+`;
+
 interface ICharacters {
     "id":number,
     "name":string,
@@ -73,7 +79,9 @@ function Home() {
             {loading ? (<Loader>Loading...</Loader>) : (
                 <CharacterList>
                     {characters.map((character) => (<Character key={character.id}>
-                        <Link to={`/${character.id}`}>{character.name}</Link>
+                        <Link to={`/${character.id}`}>
+                        <Img src={character.imageUrl} alt={character.name} />
+                        {character.name}</Link>
                     </Character>))}
                 </CharacterList>
             )}
