@@ -97,7 +97,7 @@ function Home() {
     const [characters, setCharacters] = useState<ICharacters[]>([]);
     const getCharacters = async() => {
         const response = await axios("https://disney_api.nomadcoders.workers.dev/characters");
-        setCharacters(response.data.slice(0, 100));
+        setCharacters(response.data.slice(0, 200));
         setLoading(false);
     }
     useEffect(() => {
