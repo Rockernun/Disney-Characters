@@ -77,7 +77,6 @@ const Img = styled.img`
     width:150px;
     height:150px;
     border-radius:75px;
-    margin-right:10px;
 `;
 
 const CharacterName = styled.div`
