@@ -22,7 +22,7 @@ interface InfoData {
 
 const Container = styled.h1`
     padding: 0px 20px;
-    max-width: 480px;
+    max-width: 1000px;
     margin: 0 auto;
 `;
 
@@ -41,6 +41,30 @@ const Loader = styled.span`
 const Title = styled.h1`
     font-size:48px;
     color:${(props)=>props.theme.accentColor};
+`;
+
+const Img = styled.img`
+    width:400px;
+    height:400px;
+    border-radius:200px;
+    margin: 0 auto; 
+    display: block; 
+`;
+
+const OverView = styled.div`
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    font-size:25px;
+
+    span:first-child {
+        color:black;
+        font-size:50px;
+        font-weight:400;
+        text-transform: uppercase;
+        margin-top:20px;
+        margin-bottom:10px;
+    }
 `;
 
 function Detail() {
@@ -72,7 +96,17 @@ function Detail() {
             {loading ? (
                 <Loader>Loading...</Loader>
                 ) : (
-                    null
+                    <div>
+                    <Img src={info?.imageUrl} alt={info?.name} />
+                    <OverView><span>Films</span></OverView>
+                    <ul>
+                        <OverView>
+                        {info?.films.map((film, index) => (
+                            <li key={index}>&rarr; {film}</li>
+                        ))}
+                        </OverView>
+                    </ul>
+                </div>
                 )}
         </Container>
     )
